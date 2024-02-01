@@ -12,6 +12,7 @@ let TotalCombinations=DiceA.length*DiceB.length;
 console.log("TotalCombinations Possible are :" + " "+TotalCombinations);
 console.log();
 
+
 /* 2) 2. Calculate and display the distribution of all possible combinations that can be obtained when rolling both Die A and Die B together.
 Show the math along with the code! */
 
@@ -27,7 +28,8 @@ Show the math along with the code! */
 ..........so on*/
 
 console.log("2) Calculate and display the distribution of all possible combinations that can be obtained when rolling both Die A and Die B together.Show the math along with the code");
-console.log();
+console.log("The total number of combinations that will be obtained when we will roll DiceA and DiceB will be");
+console.log()
 let count=0;
 for(let i=0;i<DiceA.length;i++){
     for(let j=0;j<DiceB.length;j++){
@@ -35,4 +37,38 @@ for(let i=0;i<DiceA.length;i++){
         let sum = (i+1) +(j+1);
         console.log(count + ") " +(i+1)+" "+" + "+(j+1)+" = "+sum);
     }
+}
+console.log();
+
+
+/* 3) Calculate the Probability of all Possible Sums occurring among the number of
+combinations from (2)*/
+
+/* we have to calculate the probability of all possible sums occuring among the no. of combinations
+P(Sum = 2) = 1/36
+P(Sum = 3) = 2/36
+P(Sum = 4) = 3/36
+P(Sum = 5) = 4/36
+P(Sum = 6) = 5/36.....
+.........so on */
+
+console.log("3) Calculate the Probability of all Possible Sums occurring among the number ofcombinations");
+console.log();
+console.log("The probability of all possible sums occuring among the no. of combinations")
+let hashmap=new Map();
+for(let i=0;i<DiceA.length;i++){
+    for(let j=0;j<DiceB.length;j++){
+        let sum = (i+1) +(j+1);
+        if(hashmap.has(sum)){
+            hashmap.set(sum,hashmap.get(sum)+1);
+        }
+        else{
+            hashmap.set(sum,1);
+        }
+    }
+}
+
+
+for(let s=2;s<=12;s++){
+    console.log("P( Sum = "+s+" ) = "+hashmap.get(s)+"/36");
 }
