@@ -10,6 +10,14 @@ So if you could only roll P(Sum = 2) = 1/X, the new dice must have the spots rea
 such that those probabilities are not changed. */
 
 
+/*        Die A cannot have more than 4 Spots on a face.
+          Die A may have multiple faces with the same number of spots.
+          No New_Die A[x] > 4
+          Therefore considering all the faces of dice A having 4 Spots. */
+
+ /*   Die B can have as many spots on a face as necessary i.e. even more than 6.
+      Die B satisfies the condition therefore dieB is used as it is. */         
+
 let DiceA=[1,2,3,4,5,6];
 let DiceB=[1,2,3,4,5,6];
 
@@ -54,8 +62,8 @@ function newDice(DiceA, DiceB) {
         return true;
     }
 
-    console.log("New Die A =", newDiceA);
-    console.log("New Die B =", DiceB);
+    console.log("New Dice A =", newDiceA);
+    console.log("New Dice B =", DiceB);
 }
 
 newDice(DiceA, DiceB);
